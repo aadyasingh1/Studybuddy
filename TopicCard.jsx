@@ -71,18 +71,19 @@ export default function TopicCard({ topic, studiedSec, color }) {
             aria-label="Topic name"
           />
           <div className="topic-meta">
-            <label className={`diff-tag d${topic.difficulty}`}>
-              <span className="sr-only">Difficulty</span>
-              <select
-                value={topic.difficulty}
-                onChange={(e) => actions.updateTopic(topic.id, { difficulty: Number(e.target.value) })}
-                aria-label="Difficulty"
-              >
-                <option value={1}>Easy</option>
-                <option value={2}>Medium</option>
-                <option value={3}>Hard</option>
-              </select>
+            <label className="sr-only" htmlFor={`difficulty-${topic.id}`}>
+              Difficulty
             </label>
+            <select
+              id={`difficulty-${topic.id}`}
+              className={`diff-tag d${topic.difficulty}`}
+              value={topic.difficulty}
+              onChange={(e) => actions.updateTopic(topic.id, { difficulty: Number(e.target.value) })}
+            >
+              <option value={1}>Easy</option>
+              <option value={2}>Medium</option>
+              <option value={3}>Hard</option>
+            </select>
             <select
               value={topic.status}
               onChange={(e) => actions.updateTopic(topic.id, { status: e.target.value })}

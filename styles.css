@@ -112,6 +112,17 @@ p {
 .pad {
   padding: 0.4rem 0.65rem;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .row {
   display: flex;
   align-items: center;
@@ -826,9 +837,9 @@ input[type='range'] {
 }
 .topic-head {
   display: grid;
-  grid-template-columns: minmax(230px, 290px) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(110px, 0.55fr) auto;
   gap: 1rem;
-  align-items: center;
+  align-items: start;
 }
 .topic-main {
   min-width: 0;
@@ -851,18 +862,43 @@ input[type='range'] {
 .topic-meta {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 0.5rem 0.9rem;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
   margin: 0.35rem 0 0.2rem;
 }
 .topic-time {
-  margin-left: auto;
-  padding-bottom: 0.3rem;
+  margin-left: 0;
+  padding-bottom: 0;
+}
+.topic-time .field {
+  gap: 0.2rem;
+}
+.topic-time .field input {
+  height: 36px;
+}
+.topic-meta select {
+  height: 36px;
+}
+.topic-meta .diff-tag {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.65rem;
+}
+.topic-meta .diff-tag.d1 {
+  color: var(--good);
+}
+.topic-meta .diff-tag.d2 {
+  color: var(--warn);
+}
+.topic-meta .diff-tag.d3 {
+  color: var(--bad);
 }
 .topic-actions {
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  padding-top: 1rem;
 }
 .diff.d1 {
   color: var(--good);
@@ -1304,6 +1340,7 @@ input[type='range'] {
   }
   .topic-actions {
     justify-content: flex-end;
+    padding-top: 0;
   }
   .grid.two {
     grid-template-columns: 1fr;
